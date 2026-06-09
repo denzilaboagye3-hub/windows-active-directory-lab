@@ -1,0 +1,49 @@
+# Windows Active Directory Lab
+
+## Overview
+
+This project demonstrates the deployment and configuration of a Windows Active Directory environment using Windows Server and VirtualBox. The lab simulates a small business network and includes Active Directory Domain Services (AD DS), DNS, Organizational Units (OUs), user and group management, Role-Based Access Control (RBAC), shared folder permissions, and Group Policy Objects (GPOs).
+
+## Technologies Used
+
+* Windows Server
+* Active Directory Domain Services (AD DS)
+* DNS
+* Group Policy Management
+* VirtualBox
+* NTFS Permissions
+* Windows Administration
+
+## Project Objectives
+
+* Deploy a Windows Server Domain Controller
+* Create and manage Active Directory users and groups
+* Implement Organizational Units (OUs)
+* Configure Role-Based Access Control (RBAC)
+* Apply Group Policy security settings
+* Validate authentication and authorization controls
+
+## Key Accomplishments
+
+* Installed and configured Active Directory Domain Services and DNS.
+* Created a new Active Directory forest and domain.
+* Built departmental OUs for IT, HR, Finance, Sales, and Workstations.
+* Created user accounts and security groups.
+* Implemented RBAC using Active Directory security groups.
+* Configured shared folders and NTFS permissions.
+* Applied password complexity and account lockout policies through GPOs.
+* Validated user access and policy enforcement.
+
+## Skills Demonstrated
+
+* Windows Server Administration
+* Active Directory Management
+* Identity and Access Management (IAM)
+* Group Policy Administration
+* Access Control
+* System Administration
+* Enterprise Security
+
+
+
+This project provided hands-on experience with enterprise identity management and centralized administration. It strengthened my understanding of Active Directory, DNS, RBAC, and Group Policy implementation in a Windows environment.
