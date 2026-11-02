@@ -1,49 +1,234 @@
-# Windows Active Directory Lab
+# Windows Active Directory Lab — Identity and Access Management
 
-## Overview
+## Project Overview
 
-This project demonstrates the deployment and configuration of a Windows Active Directory environment using Windows Server and VirtualBox. The lab simulates a small business network and includes Active Directory Domain Services (AD DS), DNS, Organizational Units (OUs), user and group management, Role-Based Access Control (RBAC), shared folder permissions, and Group Policy Objects (GPOs).
+This project documents the deployment and configuration of a Windows Active Directory environment using Windows Server and Oracle VirtualBox.
 
-## Technologies Used
+The lab simulates a small business network where users, departments, security groups, shared resources, and security policies are centrally managed through Active Directory Domain Services (AD DS).
 
-* Windows Server
-* Active Directory Domain Services (AD DS)
-* DNS
-* Group Policy Management
-* VirtualBox
-* NTFS Permissions
-* Windows Administration
+The objective was to gain practical experience with Windows Server administration, identity and access management (IAM), role-based access control (RBAC), and Group Policy security configuration.
+
+## Lab Environment
+
+| Component | Configuration |
+|---|---|
+| Virtualization | Oracle VirtualBox |
+| Server operating system | Windows Server |
+| Active Directory domain | `abc.local` |
+| Directory services | Active Directory Domain Services |
+| Name resolution | DNS |
+| Identity administration | Active Directory Users and Computers |
+| Policy administration | Group Policy Management |
+| File access management | Windows sharing and NTFS permissions |
 
 ## Project Objectives
 
-* Deploy a Windows Server Domain Controller
-* Create and manage Active Directory users and groups
-* Implement Organizational Units (OUs)
-* Configure Role-Based Access Control (RBAC)
-* Apply Group Policy security settings
-* Validate authentication and authorization controls
+- Deploy a Windows Server virtual machine.
+- Install AD DS and configure a domain controller.
+- Create a new Active Directory forest.
+- Organize departmental users and resources using OUs.
+- Create user accounts and security groups.
+- Implement group-based access control for shared resources.
+- Configure password and account lockout policies.
+- Understand how centralized administration supports enterprise security.
 
-## Key Accomplishments
+## 1. Windows Server Deployment
 
-* Installed and configured Active Directory Domain Services and DNS.
-* Created a new Active Directory forest and domain.
-* Built departmental OUs for IT, HR, Finance, Sales, and Workstations.
-* Created user accounts and security groups.
-* Implemented RBAC using Active Directory security groups.
-* Configured shared folders and NTFS permissions.
-* Applied password complexity and account lockout policies through GPOs.
-* Validated user access and policy enforcement.
+I created a Windows Server virtual machine in VirtualBox and configured the virtual hardware required to run the operating system.
+
+During deployment, I encountered installation and configuration issues that required troubleshooting before the environment was ready for Active Directory.
+
+**Result:** A Windows Server environment was prepared for domain controller deployment.
+
+**Skills developed:** Virtualization, Windows Server installation, system configuration, and troubleshooting.
+
+## 2. Active Directory Domain Services and DNS
+
+I installed the Active Directory Domain Services role and promoted the Windows Server instance to a domain controller.
+
+During configuration, I created a new Active Directory forest using the domain:
+
+`abc.local`
+
+DNS was configured to support Active Directory name resolution.
+
+**Security and administrative significance:** Active Directory centralizes identity management, while DNS helps domain-connected systems locate directory services and domain controllers.
+
+**Result:** A domain environment was established for managing users, groups, and organizational resources.
+
+## 3. Organizational Unit Structure
+
+I created Organizational Units to represent departments within the simulated organization.
+
+The structure included:
+
+- IT
+- HR
+- Finance
+- Sales
+- Workstations
+
+Organizational Units provide a way to organize directory objects and scope administrative management and Group Policy application.
+
+**Result:** Departmental OUs were created and visible in Active Directory Users and Computers.
+
+## 4. User and Security Group Management
+
+I created simulated employee accounts and organized them into departmental security groups.
+
+The documented groups included:
+
+- `Finance_Users`
+- `HR_USERS`
+- `Sales_Users`
+- `IT-Admins`
+
+User accounts were assigned to groups according to their departmental roles.
+
+For example, the lab documentation shows separate memberships for Finance, HR, Sales, and IT administration.
+
+**Security significance:** Managing access through groups reduces the need to assign permissions individually and makes access reviews more manageable.
+
+**Result:** Departmental groups and their members were configured in Active Directory.
+
+## 5. Role-Based Access Control and Shared Folders
+
+I created departmental shared folders and configured permissions using security groups.
+
+The lab included shared resources for:
+
+- Finance
+- HR
+- IT
+- Sales
+
+One documented example was the HR folder at:
+
+`C:\Shared\HR`
+
+The captured NTFS permissions show:
+
+| Security principal | Configured permission |
+|---|---|
+| `HR_USERS` | Modify |
+| `IT-Admins` | Full Control |
+
+The HR folder was also configured for sharing through Windows Advanced Sharing.
+
+**Security significance:** Group-based permissions support least-privilege access by allowing administrators to grant access according to business responsibilities.
+
+**Result:** Shared folders and group-based permissions were configured.
+
+**Validation limitation:** The available screenshots demonstrate configuration, but do not independently establish that unauthorized users were denied access during a separate client-side test.
+
+## 6. Group Policy Security Configuration
+
+I used Group Policy Management to configure centralized security settings.
+
+### Password Policy
+
+The documented configuration included settings for:
+
+- Password history
+- Minimum password age
+- Maximum password age
+- Minimum password length
+- Password complexity
+
+### Account Lockout Policy
+
+The documented configuration included:
+
+- Account lockout threshold
+- Account lockout duration
+- Reset account lockout counter
+
+### Workstation Security
+
+I also configured a policy to enable the screen saver.
+
+**Security significance:** Centralized policies help organizations establish consistent authentication and workstation security requirements.
+
+**Result:** Password, lockout, and workstation security settings were configured in Group Policy.
+
+**Validation limitation:** The screenshots demonstrate configured settings. A separate `gpresult` report or controlled client test would provide stronger evidence that the intended policies were applied and enforced.
+
+## 7. Security Concepts Demonstrated
+
+### Identity and Access Management
+
+Active Directory was used to centrally organize accounts, groups, and directory resources.
+
+### Role-Based Access Control
+
+Departmental security groups were used to assign permissions according to organizational responsibilities.
+
+### Least Privilege
+
+The lab explored how departmental permissions can restrict access to resources based on role, rather than granting every user unrestricted access.
+
+### Centralized Security Administration
+
+Group Policy was used to configure authentication and workstation security settings from a central management interface.
+
+## 8. Results and Evidence
+
+| Lab component | Documented result |
+|---|---|
+| Virtual machine | Windows Server installed in VirtualBox |
+| Active Directory | AD DS installed and new forest created |
+| DNS | Configured for the domain |
+| Organizational Units | Five departmental and workstation OUs |
+| User management | Departmental user accounts and groups |
+| Shared resources | Departmental folders created |
+| NTFS permissions | Group-based permissions configured |
+| Group Policy | Password, lockout, and screen saver settings configured |
+
+Supporting screenshots were captured during the original lab and are available in the project documentation.
+
+## 9. Challenges and Lessons Learned
+
+One of the main challenges was preparing the Windows Server virtual machine for Active Directory deployment. Installation issues required troubleshooting before I could proceed.
+
+I also gained a clearer understanding of how Active Directory, DNS, security groups, file permissions, and Group Policy work together.
+
+A major lesson was the difference between creating user accounts and building a manageable access-control structure.
+
+Security groups make permission management more scalable, while Group Policy allows administrators to configure security requirements centrally.
+
+The project also reinforced the importance of validating security configurations rather than assuming a setting is effective simply because it has been configured.
+
+## 10. Future Improvements
+
+The following additions would strengthen the lab:
+
+- Verify domain authentication from a joined client.
+- Test permitted and denied access to departmental shares.
+- Capture `gpresult /r` or `gpresult /h` output.
+- Document effective password and account lockout settings.
+- Add a basic Active Directory topology diagram.
+- Document an administrative troubleshooting scenario.
+
+These are future validation and documentation improvements, not completed results.
 
 ## Skills Demonstrated
 
-* Windows Server Administration
-* Active Directory Management
-* Identity and Access Management (IAM)
-* Group Policy Administration
-* Access Control
-* System Administration
-* Enterprise Security
+- Windows Server Administration
+- Active Directory Domain Services
+- DNS Configuration
+- Organizational Unit Management
+- User and Security Group Administration
+- Identity and Access Management
+- Role-Based Access Control
+- NTFS and Shared Folder Permissions
+- Group Policy Configuration
+- Virtualization and Troubleshooting
+- Security Documentation
 
+## Conclusion
 
+This project provided hands-on experience deploying and administering an Active Directory environment that simulates centralized identity and access management in a small organization.
 
-This project provided hands-on experience with enterprise identity management and centralized administration. It strengthened my understanding of Active Directory, DNS, RBAC, and Group Policy implementation in a Windows environment.
+Through domain deployment, departmental organization, group-based permissions, and Group Policy configuration, I developed practical knowledge of technologies commonly used by IT support teams, system administrators, and cybersecurity professionals.
+
+The lab also highlighted the importance of combining secure configuration with evidence-based validation to confirm that intended access controls are working correctly.
